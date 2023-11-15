@@ -6,6 +6,10 @@ inside that map, rather than the map as a whole.  That disappointment
 ends today.  Repeat.vim remaps `.` in a way that plugins can tap into
 it.
 
+## Modification of this repo (trailblazing/vim-repeat):
+
+Using \<c-u> as the Undo shortcut because I wanna a one-key PageUp: u
+
 The following plugins support repeat.vim:
 
 * [surround.vim](https://github.com/tpope/vim-surround)
@@ -24,9 +28,18 @@ command at the end of your map functions.
 Install using your favorite package manager, or use Vim's built-in package
 support:
 
-    mkdir -p ~/.vim/pack/tpope/start
-    cd ~/.vim/pack/tpope/start
-    git clone https://tpope.io/vim/repeat.git
+    mkdir -p ~/.vim/pack/what-ever-name/start
+    cd ~/.vim/pack/what-ever-name/start
+    git clone https://github.com/trailblazing/vim-repeat.git
+
+    lazy.nvim
+    [core.lua](https://raw.githubusercontent.com/trailblazing/dotconfig/master/init/editor/nvim/lua/plugins/core.lua)
+    return {
+        {
+            "trailblazing/vim-repeat",
+            event = "VeryLazy"
+        },
+    }
 
 ## Contributing
 
