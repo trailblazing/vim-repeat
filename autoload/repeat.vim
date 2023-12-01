@@ -144,7 +144,7 @@ function! repeat#wrap(command,count)
 endfunction
 
 nnoremap <silent> <Plug>(RepeatDot)      :<C-U>if !repeat#run(v:count)<Bar>echoerr repeat#errmsg()<Bar>endif<CR>
-nnoremap <silent> <Plug>(RepeatUndo)     :<C-U>call repeat#wrap('<c-u>',v:count)<CR>
+nnoremap <silent> <Plug>(RepeatUndo)     :<C-U>call repeat#wrap("\<Lt>C-U>",v:count)<CR>
 nnoremap <silent> <Plug>(RepeatUndoLine) :<C-U>call repeat#wrap('U',v:count)<CR>
 nnoremap <silent> <Plug>(RepeatRedo)     :<C-U>call repeat#wrap("\<Lt>C-R>",v:count)<CR>
 
@@ -152,7 +152,7 @@ if !hasmapto('<Plug>(RepeatDot)', 'n')
     nmap . <Plug>(RepeatDot)
 endif
 if !hasmapto('<Plug>(RepeatUndo)', 'n')
-    nmap <c-u> <Plug>(RepeatUndo)
+    nmap <C-U> <Plug>(RepeatUndo)
 endif
 if maparg('U','n') ==# '' && !hasmapto('<Plug>(RepeatUndoLine)', 'n')
     nmap U <Plug>(RepeatUndoLine)
